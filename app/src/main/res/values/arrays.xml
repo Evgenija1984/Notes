@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="noteName">
+    <string-array name="noteNameArray">
         <item>Заметка 1</item>
         <item>Заметка 2</item>
         <item>Заметка 3</item>
@@ -8,7 +8,7 @@
         <item>Заметка 5</item>
     </string-array>
 
-    <string-array name="noteDescription">
+    <string-array name="noteDescriptionArray">
         <item>Текс заметки 1</item>
         <item>Текс заметки 2</item>
         <item>Текс заметки 3</item>
