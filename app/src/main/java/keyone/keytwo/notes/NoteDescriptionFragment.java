@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -30,6 +31,10 @@ public class NoteDescriptionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.layout_fragment_note_descrip, container, false);
+        TextView textViewNoteName = view.findViewById(R.id.textViewNoteName);
+        TextView textViewNoteDescription = view.findViewById(R.id.textViewNoteDescription);
+        textViewNoteName.setText(this.note.getNoteName());
+        textViewNoteDescription.setText(this.note.getNoteDescription());
         return view;
     }
 }
