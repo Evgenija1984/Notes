@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment;
 
 public class NoteNameFragment extends Fragment {
 
+    Note currentNote;
+
     public static NoteNameFragment newInstance() {
         return new NoteNameFragment();
     }
@@ -26,6 +28,14 @@ public class NoteNameFragment extends Fragment {
             textViewName.setText(name);
             textViewName.setTextSize(30);
             linearLayout.addView(textViewName);
+            int finalI = i;
+            textViewName.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    currentNote = new Note(getResources().getStringArray(R.array.noteNameArray)[finalI],
+                            getResources().getStringArray(R.array.noteDescriptionArray)[finalI], 0);
+                }
+            });
 
         }
 
