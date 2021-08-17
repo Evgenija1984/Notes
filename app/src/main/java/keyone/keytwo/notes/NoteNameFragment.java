@@ -8,13 +8,13 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class NoteNameFragment extends Fragment {
 
     Note currentNote;
     boolean isLandScape;
+    public static String KEY_NOTE = "note";
 
     public static NoteNameFragment newInstance() {
         return new NoteNameFragment();
@@ -24,9 +24,22 @@ public class NoteNameFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         isLandScape = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
+        if(savedInstanceState != null) {
+            currentNote = savedInstanceState.getParcelable(KEY_NOTE);
+        }
         if(isLandScape) {
+            if(currentNote != null) {
+                showNoteDescription(1); // как здесь получить инт из currentNote?
+//                showNoteDescription(currentNote.getNoteDescription());
+            }
             showNoteDescription(0);
         }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putParcelable(KEY_NOTE, currentNote);
+        super.onSaveInstanceState(outState);
     }
 
     @Override
