@@ -2,6 +2,7 @@ package keyone.keytwo.notes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
@@ -15,5 +16,14 @@ public class MainActivity extends AppCompatActivity {
                 .beginTransaction()
                 .replace(R.id.noteNameFrameLayout, NoteNameFragment.newInstance())
                 .commit();
+
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.noteDescriptionFrameLayout, NoteDescriptionFragment.newInstance())
+                    .commit();
+
+
+        }
     }
 }
