@@ -37,18 +37,35 @@ public class NoteNameFragment extends Fragment {
                     currentNote = new Note(getResources().getStringArray(R.array.noteNameArray)[finalI],
                             getResources().getStringArray(R.array.noteDescriptionArray)[finalI], 0);
                     isLandScape = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
-                    if (isLandScape) {
-                        requireActivity()
-                                .getSupportFragmentManager()
-                                .beginTransaction()
-                                .replace(R.id.noteDescriptionFrameLayout, NoteDescriptionFragment.newInstance(currentNote))
-                                .commit();
-                    }
+                    showNoteDescription();
                 }
             });
-
         }
-
         return view;
+    }
+
+    private void showNoteDescription() {
+        if (isLandScape) {
+            showNoteDescriptionLand();
+        } else {
+            showNoteDescriptionPort();
+        }
+    }
+
+    private void showNoteDescriptionPort() {
+        requireActivity()
+                .getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.noteNameFrameLayout, NoteDescriptionFragment.newInstance(currentNote))
+                .addToBackStack("")
+                .commit();
+    }
+
+    private void showNoteDescriptionLand() {
+        requireActivity()
+                .getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.noteDescriptionFrameLayout, NoteDescriptionFragment.newInstance(currentNote))
+                .commit();
     }
 }
