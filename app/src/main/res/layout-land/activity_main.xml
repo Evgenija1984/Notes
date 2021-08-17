@@ -6,8 +6,15 @@
     tools:context=".MainActivity">
 
     <FrameLayout
-        android:id="@+id/noteNameLayout"
+        android:id="@+id/noteNameFrameLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <FrameLayout
+        android:id="@+id/noteDescriptionFrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
 
 </LinearLayout>
