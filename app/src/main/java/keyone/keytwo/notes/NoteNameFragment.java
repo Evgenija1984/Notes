@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class NoteNameFragment extends Fragment {
@@ -17,6 +18,15 @@ public class NoteNameFragment extends Fragment {
 
     public static NoteNameFragment newInstance() {
         return new NoteNameFragment();
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        isLandScape = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
+        if(isLandScape) {
+            showNoteDescription(0);
+        }
     }
 
     @Override
@@ -34,17 +44,16 @@ public class NoteNameFragment extends Fragment {
             textViewName.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    currentNote = new Note(getResources().getStringArray(R.array.noteNameArray)[finalI],
-                            getResources().getStringArray(R.array.noteDescriptionArray)[finalI], 0);
-                    isLandScape = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
-                    showNoteDescription();
+                    showNoteDescription(finalI);
                 }
             });
         }
         return view;
     }
 
-    private void showNoteDescription() {
+    private void showNoteDescription(int index) {
+        currentNote = new Note(getResources().getStringArray(R.array.noteNameArray)[index],
+                getResources().getStringArray(R.array.noteDescriptionArray)[index], 0);
         if (isLandScape) {
             showNoteDescriptionLand();
         } else {
