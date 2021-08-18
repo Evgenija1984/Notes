@@ -29,11 +29,13 @@ public class NoteNameFragment extends Fragment {
         }
         if(isLandScape) {
             if(currentNote != null) {
-                showNoteDescription(1); // как здесь получить инт из currentNote?
+                showNoteDescription(currentNote.noteIndex); // как здесь получить инт из currentNote?
 //                showNoteDescription(currentNote.getNoteDescription());
 //                showNoteDescriptionLand();
+            }else{
+                showNoteDescription(0);
             }
-            showNoteDescription(0);
+
         }
     }
 
@@ -67,7 +69,7 @@ public class NoteNameFragment extends Fragment {
 
     private void showNoteDescription(int index) {
         currentNote = new Note(getResources().getStringArray(R.array.noteNameArray)[index],
-                getResources().getStringArray(R.array.noteDescriptionArray)[index], 0);
+                getResources().getStringArray(R.array.noteDescriptionArray)[index], index);
         if (isLandScape) {
             showNoteDescriptionLand();
         } else {
