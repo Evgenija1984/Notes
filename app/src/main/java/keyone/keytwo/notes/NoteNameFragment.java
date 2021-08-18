@@ -31,6 +31,7 @@ public class NoteNameFragment extends Fragment {
             if(currentNote != null) {
                 showNoteDescription(1); // как здесь получить инт из currentNote?
 //                showNoteDescription(currentNote.getNoteDescription());
+//                showNoteDescriptionLand();
             }
             showNoteDescription(0);
         }
