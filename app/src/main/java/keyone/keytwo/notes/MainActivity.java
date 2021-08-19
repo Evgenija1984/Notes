@@ -28,8 +28,5 @@ public class MainActivity extends AppCompatActivity {
         if(backStackFragment != null && backStackFragment instanceof NoteDescriptionFragment) {
             onBackPressed();
         }
-
-
-
     }
 }

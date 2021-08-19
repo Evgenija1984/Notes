@@ -29,9 +29,7 @@ public class NoteNameFragment extends Fragment {
         }
         if(isLandScape) {
             if(currentNote != null) {
-                showNoteDescription(currentNote.noteIndex); // как здесь получить инт из currentNote?
-//                showNoteDescription(currentNote.getNoteDescription());
-//                showNoteDescriptionLand();
+                showNoteDescription(currentNote.noteIndex);
             }else{
                 showNoteDescription(0);
             }
